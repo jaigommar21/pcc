@@ -14,8 +14,10 @@ public class Employee extends Credential {
 	@NotEmpty
 	String lastname;
 		
-	@Range(min = 1, max = 5000)
+	@Range(min = 850, max = 4000)
 	int salary;
+	
+	int departmentId;
 
 	/**
 	 * 
@@ -25,11 +27,12 @@ public class Employee extends Credential {
 	 * @param lastname
 	 * @param salary
 	 */
-	public Employee(String login, String password, String firstname, String lastname, int salary) {
+	public Employee(String login, String password, String firstname, String lastname, int salary, int departmentId) {
 		super(login, password);
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.salary = salary;
+		this.departmentId = departmentId;
 	}
 
 	public Employee() {
@@ -67,11 +70,19 @@ public class Employee extends Credential {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+	
+	public int getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
+	}
 
 	@Override
 	public String toString() {
 		return "Employee [login=" + login + ", password=" + password + ", employeeId=" + employeeId + ", firstname="
-				+ firstname + ", lastname=" + lastname + ", salary=" + salary + "]";
+				+ firstname + ", lastname=" + lastname + ", salary=" + salary + ", departmentId=" + departmentId  + "]";
 	}
 
 }
